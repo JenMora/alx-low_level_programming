@@ -10,13 +10,13 @@ int a, b;
 
 for (a = '0'; b < '9'; a++)
 {
-for (b = a+1; b <= '9'; b++)
+for (b = a + 1; b <= '9'; b++)
 {
 if (b != a)
 {
 putchar(a);
 putchar(b);
-if (a == '8' && b <= '9')
+if (a == '8' && b == '9')
 continue;
 putchar(',');
 putchar(' ');
