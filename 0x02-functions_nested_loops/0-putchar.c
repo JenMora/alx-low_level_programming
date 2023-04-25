@@ -1,14 +1,20 @@
-#include <stdio.h>
-#include <main.h>
+#include "main.h"
 /**
- * main- Entry point
- * Description- Prints a random positive or negative number
- * Return: 0 (success)
+ * main - entry point
+ * Description -writes the characters _putchar to stdout
+ *
+ * Return: On success 0
  */
 int main(void)
 {
-int putchar(_putchar);
-
-	printf("_putchar\n");
-	return (0);
+_putchar('_');
+_putchar('p');
+_putchar('u');
+_putchar('t');
+_putchar('c');
+_putchar('h');
+_putchar('a');
+_putchar('r');
+_putchar('\n');
+return (0);
 }
