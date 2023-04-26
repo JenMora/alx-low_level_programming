@@ -2,7 +2,7 @@
 /**
 *positive_or_negative - determine if a number is positive or negative
 *
-*@i:the number to be determined
+*@0:the number to be determined
 *Return: 0 (success)
 */
 void positive_or_negative(int i)
