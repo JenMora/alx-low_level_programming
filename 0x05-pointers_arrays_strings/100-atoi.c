@@ -14,7 +14,8 @@ int _atoi(char *s)
 {
 int result = 0;
 int sign = 1;
-int digit;
+int digit = 0;
+int started = 0;
 while (*s == ' ')
 {
 s++;
@@ -23,20 +24,32 @@ if (*s == '-')
 {
 sign = -1;
 s++;
+started = 1;
 }
 else if (*s == '+')
 {
 s++;
+started = 1;
 }
-while (*s >= '0' && *s <= '9')
+while (*s != '\0')
 {
+if (*s >= '0' && *s <= '9')
+started = 1;
 digit = *s - '0';
-if (result > INT_MAX / 10 || (result == INT_MAX / 10 && digit > INT_MAX % 10))
+}
+if (result > (INT_MAX - digit) / 10)
 {
-return (sign == 1 ? INT_MAX : INT_MIN);
+return (sign == 1 ? INT_MIN : INT_MAX);
 }
 result = result * 10 + digit;
 s++;
 }
+if (started)
+{
 return (sign *result);
+}
+else
+{
+return (0);
+}
 }
