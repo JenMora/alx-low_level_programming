@@ -5,7 +5,7 @@
  * print_array - elements of an array of integers
  * @a:first integer
  * @n: second integer
- * Return: 0
+ * 
  */
 void print_array(int *a, int n)
 {
@@ -15,10 +15,9 @@ void print_array(int *a, int n)
 
 	printf("%d", a[i]);
 
-	if (i < n - 1)
-
+	if (i != (n - 1))
 	{
 		printf(", ");
 	}
-	printf("\n");
+	putchar('\n');
 }
