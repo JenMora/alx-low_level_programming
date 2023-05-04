@@ -17,13 +17,12 @@ char *_strcat(char *dest, char *src)
 		pointer++;
 	}
 	/*copy src to dest*/
-	for(x = 0; src[x] != '\0'; x++, pointer++)
+	for (x = 0; src[x] != '\0'; x++, pointer++)
 	{
 	*pointer = src[x];
 	}
-	/*Add terminating null byte*/
+	/*add scr to dest*/
 	*pointer = '\0';
-	putchar('\n');
 	/* Return dest*/
 	return (dest);
 }
