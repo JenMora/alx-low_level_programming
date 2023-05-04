@@ -9,15 +9,17 @@
 char *_strcat(char *dest, char *src)
 {
 	char *pointer = dest;
+	int x;
+
 	/*pointer to the end of dest*/
 	while (*pointer != '\0')
 	{
 		pointer++;
 	}
 	/*copy src to dest*/
-	while (*src != '\0')
+	for(x = 0; src[x] != '\0'; x++, pointer++)
 	{
-		*pointer = (*src);
+	*pointer = src[x];
 	}
 	/*Add terminating null byte*/
 	*pointer = '\0';
