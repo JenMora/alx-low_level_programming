@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /**
- *_strcmp( - a function that compares two strings
+ *_strcmp - a function that compares two strings
  *@s1:a string
  *@s2:another string
  *Return:(s1[y]-s2[y])
