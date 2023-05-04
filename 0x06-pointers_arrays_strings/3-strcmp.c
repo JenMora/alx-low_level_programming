@@ -8,14 +8,15 @@
  */
 int _strcmp(char *s1, char *s2)
 {
-int y = 0;
-while (s1[y] == s2[y])
+int y, x;
+/*y counts while x compares value*/
+	y = 0;
+
+while (s1[y] == s2[y] && s1[y] != '\0')
 {
-	if  (s1[y] != '\0')
-	{
-		return (0);
-	}
 	y++;
 }
-	return (s1[y] - s2[y]);
+	x = s1[y] - s2[y];
+
+	return (x);
 }
