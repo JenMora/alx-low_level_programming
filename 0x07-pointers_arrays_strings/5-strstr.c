@@ -19,7 +19,7 @@ while (haystack)
 	char *h = haystack;
 	char *n = needle;
 /*check whether the characters match*/
-	while (*h == *n)
+	while (*h == *n && *n != '\0')
 	{
 		h++;
 		n++;
