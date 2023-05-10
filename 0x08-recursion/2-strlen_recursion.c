@@ -14,7 +14,7 @@ int _strlen_recursion(char *s)
 		return (0);
 	}
 	return (1 + _strlen_recursion(s + 1));
-/*Print the string recursively*/
+/*Print the string recursively add 1 get the total length of the string.*/
 
 	return (0);
 }
