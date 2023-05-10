@@ -7,15 +7,12 @@
  */
 void _print_rev_recursion(char *s)
 {
-if (*s == '\0')
-/*set the base condition*/
+if (*s)
 {
-_putchar('\n');
-/*print new line at the end of teh string*/
-return;
-}
+/*set the base condition*/
 _print_rev_recursion(s + 1);
 /*print in reverse*/
 _putchar(*s);
+}
 /*prints the current character*/
 }
