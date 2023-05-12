@@ -9,13 +9,11 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
-/*take a pointer *ps to the memory area s*/
-/*iterate through teh memory using teh pointer ps*/
-		for (i = 0; i < n; i++)
-		{
-			s[i] = b;
-		}
-/*return to memory area s*/
-	return (s);
+		unsigned int i;
+
+			for (i = 0; i < n; i++)
+					{
+								s[i] = b;
+									}
+				return (s);
 }
