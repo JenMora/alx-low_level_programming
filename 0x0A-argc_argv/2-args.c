@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 {
 int j;
 printf("argc %d\n", argc);
-printf("You can do anything, but not everything\n");
 for (j = 0; j < argc; j++)
 {
 printf("argv[%d] = %s\n", j, argv[j]);
