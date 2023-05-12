@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdio.h>
-#include <string.h>
 /**
  * _memset - a function that fills memory with a constant byte
  * @s:memory area
@@ -8,17 +7,14 @@
  * @n:number of bytes
  * Return:s
  */
-void *_memset(void *s, int b, size_t n)
+char *_memset(char *s, char b, unasigned int n)
 {
+	unasigned int i;
 /*take a pointer *ps to the memory area s*/
-	char *ps = s;
 /*iterate through teh memory using teh pointer ps*/
-		while (n > 0)
+		for (i = 0; i < n; i++)
 		{
-			*ps = b;
-			ps++;
-			n--;
-/*continue until n is 0*/
+			s[i] = b;
 		}
 /*return to memory area s*/
 	return (s);

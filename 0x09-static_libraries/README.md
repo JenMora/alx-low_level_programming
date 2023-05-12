@@ -1,1 +1,1 @@
-static library README.md
+this is a truial for the NOOB script README.md
