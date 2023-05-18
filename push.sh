@@ -10,7 +10,7 @@ cd "$repo_dir"
 git add --all
 
 # Commit the changes with a specified message
-commit_message="Scripted commit"
+commit_message="the commit message dependent on the subsequent file name"
 git commit -m "$commit_message"
 
 # Push the changes to the remote repository
