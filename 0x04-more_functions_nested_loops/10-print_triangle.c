@@ -2,14 +2,14 @@
  #include "main.h"
 
  /**
-  *  * print_triangle - prints a triangle
-  *   * @size : integer type
-  *    * Return:void
+  *print_triangle - prints a triangle followed by a new line.
+  *@size: integer type
+  *Return:0
   */
 
 void print_triangle(int size)
 {
-
+int main (void)
 	int i = 1, ii;
 
 	while (i <= size && size > 0)
