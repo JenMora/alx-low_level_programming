@@ -8,14 +8,17 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	void *pointer= malloc(b);
-		if (pointer == NULL)
-		{
-			printf("error, malloc failure\n");
-			exit (98);
-		}
-		else
-		{
-			return (pointer);
-		}
+	void *pointer;
+       
+	pointer	= malloc(b);
+
+	if (pointer == NULL)
+	{
+		exit(98);
+	
+	}
+	else
+	{
+		return (pointer);
+	}
 }
