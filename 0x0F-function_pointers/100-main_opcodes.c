@@ -2,46 +2,40 @@
 #include <stdlib.h>
 
 /**
- *main - a program that prints its own opcodes
- *@argc:command-line arguments count
- *@argv: array of strings
+ *main - a function that prints its own opcodes
+ *@argc:argument count
+ *@argv:argument array
  *Return:0
  */
 int main(int argc, char *argv[])
 {
-	int a, b;
+	int byte_count, j;
 
-	char *s;
+	char *arr;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
+	byte_count = atoi(argv[1]);
 
-	b = atoi(argv[1]);
-	if (b < 0)
+	if (byte_count < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
+	arr = (char *)main;
 
-	b = atoi(argv[1]);
-	if (b < 0)
+	for (j = 0; j < byte_count; j++)
 	{
-		printf("Error\n");
-		exit(2);
-	}
-
-	s = (char *) main;
-	for (a = 0; a < b; a++)
-	{
-		if (a == b - 1)
+		if (j == byte_count - 1)
 		{
-			printf("%02hhx\n", s[a]);
+			printf("%02hhx\n", arr[j]);
 			break;
 		}
-		printf("%02hhx ", s[a]);
+		printf("%02hhx ", arr[j]);
 	}
 	return (0);
 }
+
