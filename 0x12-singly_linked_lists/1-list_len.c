@@ -3,11 +3,8 @@
 #include "lists.h"
 
 /*
- *main - Entry point of the code
- *list_len - finds the number of linked list_t list elements.
- *Description:a function that returns the number of
- *elements in a linked list_t list
  *@h: the list_t list
+ *list_len - finds the number of elements in a linked list_t list
  *Return: 0
  */
 
