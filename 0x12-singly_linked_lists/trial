@@ -1,0 +1,36 @@
+extern printf
+/*Declare the printf function as an external symbol*/
+
+section .text
+/*Define the section where the code resides as .text*/
+global main
+/*Declare the main function as a global symbol*/
+main:
+/*Start of the main function*/
+push rbp
+/*Push the value of the RBP (base pointer) register onto the stack*/
+
+mov rdi,fmt
+/*Move the address of the 'fmt' string to the RDI register*/
+mov rsi,msg
+/*Move the address of the 'msg' string to the RSI register*/
+mov rax,0
+/*Move the value 0 to the RAX register*/
+call printf
+/*Call the printf function*/
+
+pop rbp
+/*Move the value 0 to the RAX register*/
+
+mov rax,0
+/*Move the value 0 to the RAX register*/
+ret
+/*Return from the main function*/
+
+
+section .data
+/*Define the section where the data resides as .data*/
+msg:db "Hello, Holberton",0
+/*Define a null-terminated string with the message*/
+fmt:db "%s", 10,0
+/*Define a format string for printf with a line*/
