@@ -4,7 +4,8 @@
 
 /*
  *@h: the list_t list
- *list_len - finds the number of elements in a linked list_t list
+ *@list_len -function that returns the number of elements
+ *in a linked list_t list
  *Return: 0
  */
 
