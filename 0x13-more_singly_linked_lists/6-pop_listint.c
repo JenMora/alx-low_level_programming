@@ -14,10 +14,11 @@ int pop_listint(listint_t **head)
 
 	int i;
 
-	if (head == NULL)
+	if (head == 0)
 	{
 		return (0);
 	}
+	else
 	temp = *head;
 	i = (*head)->n;
 	*head = (*head)->next;
