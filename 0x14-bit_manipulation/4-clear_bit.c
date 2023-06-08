@@ -10,11 +10,9 @@
 
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-unsigned long int mask = ~(1UL << index);
-
-*n = *n & mask;
+*n &= ~(1 << index);
 return (1);
-if (index >= (sizeof(unsigned long int) * 8))
+if (index >= (sizeof(n) * 8))
 {
 return (-1);
 }
