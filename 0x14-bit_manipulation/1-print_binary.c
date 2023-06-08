@@ -13,7 +13,12 @@ void print_binary(unsigned long int n)
 unsigned long int integer = n;
 int bits = 0;
 int i;
-/*for bit iteration*/
+	  /*for bit iteration*/
+if (n == 0)
+{
+printf("0");
+return;
+}
 
 while (integer > 0)
 {
@@ -29,8 +34,8 @@ unsigned long int mask = 1UL << i;
 /*creating a bit mask by left shifting */
 if (n & mask)
 /*this checks whether the bit is set*/
-printf("0");
+printf("1");
 else
-printf("1");	
+printf("0");	
 }
 }
