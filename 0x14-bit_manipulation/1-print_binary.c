@@ -36,6 +36,6 @@ if (n & mask)
 /*this checks whether the bit is set*/
 printf("1");
 else
-printf("0");	
+printf("0");
 }
 }
