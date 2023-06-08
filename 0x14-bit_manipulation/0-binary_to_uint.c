@@ -3,7 +3,7 @@
 #include "main.h"
 
 /*
- * binary_to_uint - a function that converts a binary number to an unsigned int
+ *binary_to_uin - a function that converts a binary number to an unsigned int
  * @b:points to a string of 0 and 1 characters
  * Return:the converted number if success, otherwise 0 if one or more
  * characters exist in the string b that is not 0 or 1 or if b is NULL
