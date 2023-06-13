@@ -6,10 +6,9 @@ char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
-*  * create_buffer - Allocates 1024 bytes for a buffer.
-*   * @file: The name of the file buffer is storing chars for.
-*    *
-*     * Return: A pointer to the newly-allocated buffer.
+*create_buffer - Allocates 1024 bytes for a buffer.
+*@file: The name of the file buffer is storing chars
+*Return: A pointer to the newly-allocated buffer.
 */
 char *create_buffer(char *file)
 {
@@ -28,8 +27,8 @@ return (buffer);
 }
 
 /**
-*  * close_file - Closes file descriptors.
-*   * @fd: The file descriptor to be closed.
+*close_file - Closes file descriptors.
+*@fd: The file descriptor to be closed.
 */
 void close_file(int fd)
 {
