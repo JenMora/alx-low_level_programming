@@ -1,70 +1,54 @@
 #include "lists.h"
 
 /**
-*dlistint_len -A function that returns the number of elements in linked list
-*@h: points to head of the linked list
-*Return: the number of elements in the linked list.
-*/
-
-size_t dlistint_len(const dlistint_t *h)
-{
-const dlistint_t *current = h;
-int i = 0;
-
-while (current)
-{
-i++;
-current = current->next;
-}
-
-return (i);
-}
-
-/**
-*insert_dnodeint_at_index - A function that inserts a new node at a given position.
-*@h: pointer to head of list.
-*@idx: index of list where new node should be added.
-*@n: value of the new node.
-*Return: address of new node or NULL if failed
+*insert_dnodeint_at_index -A function that inserts a new node at
+*a given position
+*@h: head of the list
+*@idx: index of the new node
+*@n: value of the new node
+*Return: the address of the new node, or NULL if it failed
 */
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-dlistint_t *current, *tmp, *new_node;
+dlistint_t *new;
+dlistint_t *head;
 unsigned int i;
-size_t len;
 
-new_node = malloc(sizeof(dlistint_t));
-if (new_node == NULL)
-return (NULL);
-new_node->n = n;
-current = *h;
-len = dlistint_len(*h);
-for (i = 0; i < idx; i++)
-{
-if (idx > len + 1)
-return (NULL);
-if (i > 0)
-{
-if (current->next == NULL)
-break;
-current = current->next;
-}
-}
+new = NULL;
 if (idx == 0)
-new_node = add_dnodeint(h, n);
+new = add_dnodeint(h, n);
 else
 {
-if (current && !current->next)
-new_node = add_dnodeint_end(h, n);
+head = *h;
+i = 1;
+if (head != NULL)
+while (head->prev != NULL)
+head = head->prev;
+while (head != NULL)
+{
+if (i == idx)
+{
+if (head->next == NULL)
+new = add_dnodeint_end(h, n);
 else
 {
-tmp = current->next;
-new_node->next = tmp;
-new_node->prev = current;
-current->next = new_node;
-tmp->prev = new_node;
+new = malloc(sizeof(dlistint_t));
+if (new != NULL)
+{
+new->n = n;
+new->next = head->next;
+new->prev = head;
+head->next->prev = new;
+head->next = new;
 }
 }
-return (new_node);
+break;
+}
+head = head->next;
+i++;
+}
+}
+
+return (new);
 }
