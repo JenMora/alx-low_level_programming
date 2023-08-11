@@ -1,46 +1,66 @@
 #include "hash_tables.h"
 
+
 /**
-* hash_table_set - This function that adds an element to the hash table
-* @ht: The hash table to which a n element is added
-* @key: The value of a hash function
-* @value: The value of the hash function associated with the key
-* Return: 1 on sucess, otherwise 0
-*/
+ * create_node - This function creates a node
+ * @key: the key of the hash function
+ * @value: value corresponding to a key associated with  the hash function
+ * Return: modified node
+ */
+hash_node_t *create_node(const char *key, const char *value)
+{
+	hash_node_t *new_node;
+
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
+	{
+		return (NULL);
+	}
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
+	new_node->next = NULL;
+	return (new_node);
+}
+/**
+ * hash_table_set - aThis function dds an element to the hash table
+ * @ht: The hash table to be modified
+ * @key: the key asscociated with the hash function
+ * @value: value associated with the key and the hash function
+ * Return: 1 if it succeeded, 0 otherwise
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-unsigned long int index;
-hash_node_t *new_node;
-index = key_index((const unsigned char *)key, ht->size);
-/*calculate the index for the key using the key index function*/
-new_node = malloc(sizeof(hash_node_t));
-/*Allocate the memory of teh new hash_node_t data structure*/
-if (ht == NULL || key == NULL || *key == '0' || value == NULL)
-/* check for inavlid entries anf return null to indicate failure*/
-return (0);
-if (new_node == NULL)
-return (0);
-/*return null if ma;;oc fails*/
+	hash_node_t *new_hash_table;
+	unsigned long int index = 0;
 
-new_node->key = strdup(key);
-/*the key is duplicated to ensure safe storage of the key in teh new node*/
-if (new_node->key == NULL)
-/*duplicate the key and return 0 if duplication fails*/
-{
-free(new_node);
-return (0);
-}
-
-new_node->value = strdup(value);
-if (new_node->value == NULL)
-{
-free(new_node->key);
-free(new_node);
-return (0);
-/*free allocted memory for the key and new node and return 0 on failures*/
-}
-new_node->next = ht->array [index];
-ht->array [index] = new_node;
-/*Add the new node at he beginning of the linked list at the calculated index*/
-return (1);
+	if (ht == NULL || ht->array == NULL)
+/* this if function checks for valid inputs and returns0 of failure*/		
+	{
+		return (0);
+	}
+	new_hash_table = create_node(key, value);
+	if (new_hash_table == NULL)
+	{
+		return (0);
+	}
+	index = hash_djb2((const unsigned char *)key) % ht->size;
+	if (ht->array[index] == NULL)
+	{
+		ht->array[index] = new_hash_table;
+	}
+	else if (strcmp(ht->array[index]->key, key) == 0)
+	{
+		free(ht->array[index]->value);
+		free(new_hash_table->key);
+		free(new_hash_table->value);
+		free(new_hash_table);
+		ht->array[index]->value = strdup(value);
+		return (1);
+	}
+	else
+	{
+		new_hash_table->next = ht->array[index];
+		ht->array[index] = new_hash_table;
+	}
+	return (1);
 }
