@@ -20,7 +20,7 @@ if (H_table == NULL)
 return (NULL);
 /*Free memory if malloc fails to avoid memory leaks*/
 H_table->size = size;
-H_table->array = malloc(sizeof(hash_table_t *) * size);
+H_table->array = malloc(sizeof(hash_node_t *) * size);
 if (H_table->array == NULL)
 {
 free(H_table);
