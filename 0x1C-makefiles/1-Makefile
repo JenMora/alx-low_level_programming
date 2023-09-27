@@ -1,7 +1,7 @@
 # Makefile for "school" executable
 
 # Compiler and compiler flags
-CC ?= gcc
+CC = gcc
 CFLAGS =
 
 # Source files
@@ -14,10 +14,9 @@ OBJ = $(SRC:.c=.o)
 TARGET = school
 
 # Rule to build the executable
-all: $(TARGET)
+all: $(SRC)
 
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $(OBJ)
+	$(CC) $(SRC) -o school
 
 # Clean rule to remove object files and the executable
 clean:
