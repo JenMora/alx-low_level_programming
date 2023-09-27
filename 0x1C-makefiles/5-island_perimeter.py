@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""This is a module that defines island perimeter"""
+
 
 def island_perimeter(grid):
     """
@@ -24,9 +26,9 @@ def island_perimeter(grid):
 
                 # Check adjacent cells (up, down, left, right) and decrement
                 # perimeter for each land neighbor.
-                if row > 0 and grid[row - 1][col] == 1:
-                    perimeter -= 2
-                if col > 0 and grid[row][col - 1] == 1:
-                    perimeter -= 2
+                if row > 0:
+                    perimeter -= grid[row - 1][col] * 2
+                if col > 0:
+                    perimeter -= grid[row][col - 1] * 2
 
     return perimeter
