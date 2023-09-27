@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 # Source and object files
-SRC = main.c file1.c file2.c
+SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 
 # Executable name
@@ -21,12 +21,8 @@ RM = rm -f
 all: $(NAME)
 
 # Rule to build the executable
-$(NAME): $(OBJ)
-    $(CC) $(CFLAGS) -o $@ $^
-
-# Rule to compile source files
-%.o: %.c m.h
-    $(CC) $(CFLAGS) -c -o $@ $<
+$(NAME):m.h $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME)
 
 # Clean rules
 clean:
