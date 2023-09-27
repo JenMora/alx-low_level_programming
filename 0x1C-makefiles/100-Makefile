@@ -1,13 +1,13 @@
-# Makefile for school
-
 # Compiler and flags
 CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
 # Source and object files
 SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
+
 # Executable name
 NAME = school
-CFLAGS = -Wall -Werror -Wextra -pedantic
 
 # Phony targets
 .PHONY: all clean oclean fclean re
@@ -16,19 +16,18 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 all: $(NAME)
 
 # Rule to build the executable
-$(NAME):m.h $(OBJ)
+$(NAME): m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 # Clean rules
 clean:
-    $(RM) *~
-    $(RM) $(NAME)
+	$(RM) *~ $(OBJ)
 
 oclean:
-    $(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean oclean
+	$(RM) $(NAME)
 
 # Force recompilation of all source files
 re: fclean all
-
