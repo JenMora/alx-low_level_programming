@@ -11,9 +11,6 @@ OBJ = $(SRC:.c=.o)
 # Executable name
 NAME = school
 
-# Utility programs
-RM = rm -f
-
 # Phony targets
 .PHONY: all clean oclean fclean re
 
@@ -22,11 +19,12 @@ all: $(NAME)
 
 # Rule to build the executable
 $(NAME):m.h $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
 # Clean rules
 clean:
-    $(RM) *~ $(NAME)
+    $(RM) *~
+    $(RM) $(NAME)
 
 oclean:
     $(RM) $(OBJ)
