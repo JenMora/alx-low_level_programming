@@ -1,4 +1,3 @@
-# Define variables
 CC=gcc
 SRC=main.c school.c
 OBJ=$(SRC:.c=.o)
@@ -6,27 +5,21 @@ NAME=school
 RM=rm -f
 CFLAGS= -Wall -Werror -Wextra -pedantic
 
-# Default rule to build the executable
 all: $(NAME)
 
-# Rule to build the executable
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ)-o $(NAME)
-# Rule to compile source files
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
 %.o:%.c
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-# Rule to clean temporary files and the executable
 clean:
 	$(RM) *~
 	$(RM) $(NAME)
 
-# Rule to clean object files
 oclean:
 	$(RM) $(OBJ)
 
-# Rule to clean temporary files, the executable, and object files
 fclean: clean oclean
 
-# Rule to force recompilation of all source files
 re: oclean all
