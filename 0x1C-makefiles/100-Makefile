@@ -2,14 +2,12 @@
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
-
 # Source and object files
 SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
-
 # Executable name
 NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
 # Phony targets
 .PHONY: all clean oclean fclean re
