@@ -1,0 +1,22 @@
+# Compiler
+CC=gcc
+
+# Source files
+SRC= main.c school.c
+
+# Object files
+OBJ=$(SRC:.c=.o)
+
+# Executable name
+NAME=school
+
+# Rule to build the executable
+all: $(NAME)
+
+# Rule to compile the executable
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Rule to compile individual source files to object files
+%.o: %.c
+	$(CC) -c -o $@ $<
